@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  categorys = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
+
+  constructor() { }
 
 }
