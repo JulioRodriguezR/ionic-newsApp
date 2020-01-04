@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSegment } from '@ionic/angular';
 import { NewsService } from 'src/app/services/news.service';
+import { Article } from 'src/app/models/models';
 
 @Component({
     selector: 'app-tab2',
@@ -19,15 +20,23 @@ export class Tab2Page implements OnInit {
         'sports',
         'technology',
     ];
+    news: Article[] = [];
 
     constructor(private newSrv: NewsService) {}
 
     ngOnInit() {
-        this.segment.value = this.categorys[0];
-        this.newSrv
-            .getTopHeadLinesCategory(this.categorys[0])
-            .subscribe(resp => {
-                console.log(resp);
-            });
+        this.loadNews(this.categorys[0]);
+    }
+
+    changeCategory(ev) {
+        this.news = [];
+        this.loadNews(ev.detail.value);
+    }
+
+    loadNews(category: string) {
+        this.newSrv.getTopHeadLinesCategory(category).subscribe(resp => {
+            console.log(resp);
+            this.news.push(...resp.articles);
+        });
     }
 }
