@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { ResponseTopHeadlines } from '../models/models';
+import { environment } from 'src/environments/environment';
+
+const apiAkey = environment.apiKey;
+const apiUrl = environment.apiUrl;
+
+const headers = new HttpHeaders({
+    'X-Api-Key': apiAkey,
+});
 
 @Injectable({
     providedIn: 'root',
@@ -9,15 +17,22 @@ import { ResponseTopHeadlines } from '../models/models';
 export class NewsService {
     constructor(private http: HttpClient) {}
 
+    private startQuery<T>(query: string) {
+        query = apiUrl + query;
+        return this.http.get<T>(query, { headers });
+    }
+
     getTopHeadLines() {
-        return this.http.get<ResponseTopHeadlines>(
-            `https://newsapi.org/v2/top-headlines?country=us&apiKey=978764b3fe6b412f8517a7d9c0a1e140`,
+        // Tipificar la respuesta
+        //
+        return this.startQuery<ResponseTopHeadlines>(
+            `/top-headlines?country=us`,
         );
     }
 
-    getTopHeadLinesCatefory() {
-        return this.http.get<ResponseTopHeadlines>(
-            `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=978764b3fe6b412f8517a7d9c0a1e140`,
+    getTopHeadLinesCategory(category: string) {
+        return this.startQuery<ResponseTopHeadlines>(
+            `/top-headlines?country=us&category=${category}`,
         );
     }
 }
