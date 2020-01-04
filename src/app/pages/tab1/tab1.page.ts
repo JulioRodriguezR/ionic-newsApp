@@ -18,7 +18,6 @@ export class Tab1Page implements OnInit {
     }
 
     loadData(ev) {
-        console.log(ev);
         this.loadNews(ev);
     }
 

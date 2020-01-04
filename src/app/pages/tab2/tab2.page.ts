@@ -35,7 +35,6 @@ export class Tab2Page implements OnInit {
 
     loadNews(category: string, ev?) {
         this.newSrv.getTopHeadLinesCategory(category).subscribe(resp => {
-            console.log(resp);
             this.news.push(...resp.articles);
             if (ev) {
                 ev.target.complete();
