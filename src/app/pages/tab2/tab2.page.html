@@ -13,7 +13,7 @@
     >
         <ion-segment-button
             mode="md"
-            *ngFor="let category of categorys"
+            *ngFor="let category of categories"
             [value]="category"
         >
             <ion-label text-capitalize>{{ category }}</ion-label>
@@ -22,4 +22,11 @@
 </ion-header>
 <ion-content>
     <app-news [news]="news"></app-news>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+            loadingSpinner="crescent"
+            loadingText="Loading more data..."
+        >
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

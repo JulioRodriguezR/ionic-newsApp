@@ -11,7 +11,7 @@ import { Article } from 'src/app/models/models';
 export class Tab2Page implements OnInit {
     @ViewChild(IonSegment, { static: true }) segment: IonSegment;
 
-    categorys = [
+    categories = [
         'business',
         'entertainment',
         'general',
@@ -25,7 +25,7 @@ export class Tab2Page implements OnInit {
     constructor(private newSrv: NewsService) {}
 
     ngOnInit() {
-        this.loadNews(this.categorys[0]);
+        this.loadNews(this.categories[0]);
     }
 
     changeCategory(ev) {
@@ -33,10 +33,17 @@ export class Tab2Page implements OnInit {
         this.loadNews(ev.detail.value);
     }
 
-    loadNews(category: string) {
+    loadNews(category: string, ev?) {
         this.newSrv.getTopHeadLinesCategory(category).subscribe(resp => {
             console.log(resp);
             this.news.push(...resp.articles);
+            if (ev) {
+                ev.target.complete();
+            }
         });
+    }
+
+    loadData(ev) {
+        this.loadNews(this.segment.value, ev);
     }
 }
