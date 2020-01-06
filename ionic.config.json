@@ -1,5 +1,7 @@
 {
-  "name": "NewsApp",
-  "integrations": {},
-  "type": "angular"
+    "name": "NewsApp",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
 }
