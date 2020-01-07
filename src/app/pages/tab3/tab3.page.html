@@ -5,7 +5,14 @@
         </ion-title>
     </ion-toolbar>
 </ion-header>
-
 <ion-content>
-    <app-news [news]="dataLocalSrv.news"></app-news>
+    <ion-slides [options]="sliderOpts">
+        <ion-slide>
+            <ion-label>No Favorites</ion-label>
+        </ion-slide>
+    </ion-slides>
+    <app-news
+        *ngIf="dataLocalSrv.news.length > 0"
+        [news]="dataLocalSrv.news"
+    ></app-news>
 </ion-content>
