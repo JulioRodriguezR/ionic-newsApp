@@ -10,7 +10,9 @@ import { Article } from '../models/models';
 export class DataLocalService {
     news: Article[] = [];
 
-    constructor(private storage: Storage) {}
+    constructor(private storage: Storage) {
+        this.loadFavorites();
+    }
 
     saveNew(evNew: Article) {
         const exists = this.news.find(i => i.title === evNew.title);
@@ -20,5 +22,10 @@ export class DataLocalService {
         }
     }
 
-    loadFavorites() {}
+    async loadFavorites() {
+        const favorites = await this.storage.get('favorites');
+        if (favorites) {
+            this.news = favorites;
+        }
+    }
 }
