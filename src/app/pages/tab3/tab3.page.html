@@ -6,7 +6,7 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-slides [options]="sliderOpts">
+    <ion-slides *ngIf="dataLocalSrv.news.length === 0" [options]="sliderOpts">
         <ion-slide>
             <ion-label>No Favorites</ion-label>
         </ion-slide>
@@ -14,5 +14,6 @@
     <app-news
         *ngIf="dataLocalSrv.news.length > 0"
         [news]="dataLocalSrv.news"
+        [onFavorites]="true"
     ></app-news>
 </ion-content>

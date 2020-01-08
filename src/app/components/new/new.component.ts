@@ -15,6 +15,7 @@ import { DataLocalService } from 'src/app/services/data-local.service';
 export class NewComponent implements OnInit {
     @Input() new: Article;
     @Input() index: number;
+    @Input() onFavorites = false;
 
     constructor(
         private iab: InAppBrowser,
@@ -30,6 +31,27 @@ export class NewComponent implements OnInit {
     }
 
     async startMenu() {
+        let saveDeleteBtn;
+        if (this.onFavorites) {
+            // borrado favoritos
+            saveDeleteBtn = {
+                text: 'Delete Favorite',
+                icon: 'trash',
+                handler: () => {
+                    console.log('Delete of favorite');
+                    this.dataLocalSrv.deleteNew(this.new);
+                },
+            };
+        } else {
+            saveDeleteBtn = {
+                text: 'Favorite',
+                icon: 'heart',
+                handler: () => {
+                    console.log('Favorite');
+                    this.dataLocalSrv.saveNew(this.new);
+                },
+            };
+        }
         const actionSheet = await this.actionSheetCtrl.create({
             buttons: [
                 {
@@ -44,14 +66,7 @@ export class NewComponent implements OnInit {
                         );
                     },
                 },
-                {
-                    text: 'Favorite',
-                    icon: 'heart',
-                    handler: () => {
-                        console.log('Favorite');
-                        this.dataLocalSrv.saveNew(this.new);
-                    },
-                },
+                saveDeleteBtn,
                 {
                     text: 'Cancel',
                     icon: 'close',

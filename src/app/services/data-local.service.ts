@@ -28,4 +28,9 @@ export class DataLocalService {
             this.news = favorites;
         }
     }
+
+    deleteNew(evNew: Article) {
+        this.news = this.news.filter(i => i.title !== evNew.title);
+        this.storage.set('favorites', this.news); // lo que quede del []
+    }
 }
