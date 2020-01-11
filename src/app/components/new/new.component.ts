@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 import { Article } from 'src/app/models/models';
@@ -22,6 +22,7 @@ export class NewComponent implements OnInit {
         private actionSheetCtrl: ActionSheetController,
         private socialSharing: SocialSharing,
         public dataLocalSrv: DataLocalService,
+        private platform: Platform,
     ) {}
 
     ngOnInit() {}
@@ -33,12 +34,11 @@ export class NewComponent implements OnInit {
     async startMenu() {
         let saveDeleteBtn;
         if (this.onFavorites) {
-            // borrado favoritos
             saveDeleteBtn = {
                 text: 'Delete Favorite',
                 icon: 'trash',
                 handler: () => {
-                    console.log('Delete of favorite');
+                    console.log('Delete favorite');
                     this.dataLocalSrv.deleteNew(this.new);
                 },
             };
@@ -58,12 +58,7 @@ export class NewComponent implements OnInit {
                     text: 'Share',
                     icon: 'share',
                     handler: () => {
-                        this.socialSharing.share(
-                            this.new.title, // noticia
-                            this.new.source.name, // autor
-                            '', // file
-                            this.new.url,
-                        );
+                        this.shareNew();
                     },
                 },
                 saveDeleteBtn,
@@ -74,5 +69,28 @@ export class NewComponent implements OnInit {
             ],
         });
         await actionSheet.present();
+    }
+
+    shareNew() {
+        if (this.platform.is) {
+            this.socialSharing.share(
+                this.new.title, // new
+                this.new.source.name, // author
+                '', // file
+                this.new.url,
+            );
+        } else {
+            if (navigator['share']) {
+                navigator['share']({
+                    title: this.new.title,
+                    text: this.new.description,
+                    url: this.new.url,
+                })
+                    .then(() => console.log('Successful share'))
+                    .catch(error => console.log('Error sharing', error));
+            } else {
+                alert('Error share');
+            }
+        }
     }
 }
