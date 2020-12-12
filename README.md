@@ -1,6 +1,6 @@
 # NewsApp
 
-* The [News API](https://newsapi.org/) is a simple HTTP REST API for searching and retrieving live articles from the web using:
+* The [News API](https://newsapi.org/) is a simple searching live articles from the web using:
 
 1. Keyword or phrase
 2. Date published
