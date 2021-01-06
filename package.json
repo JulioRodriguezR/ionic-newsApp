@@ -22,6 +22,8 @@
     "@angular/pwa": "^0.803.22",
     "@angular/router": "~8.1.2",
     "@angular/service-worker": "~8.1.2",
+    "@capacitor/core": "2.4.5",
+    "@capacitor/ios": "^2.4.5",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/in-app-browser": "^5.19.1",
     "@ionic-native/social-sharing": "^5.19.1",
@@ -36,6 +38,7 @@
     "cordova-plugin-x-toast": "^2.7.2",
     "cordova-sqlite-storage": "^4.0.0",
     "core-js": "^2.5.4",
+    "es6-promise-plugin": "^4.2.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -49,13 +52,14 @@
     "@angular/compiler": "~8.1.2",
     "@angular/compiler-cli": "~8.1.2",
     "@angular/language-service": "~8.1.2",
+    "@capacitor/cli": "2.4.5",
     "@ionic/angular-toolkit": "^2.1.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "graceful-fs": "^4.2.3",
     "husky": "3.1.0",
-    "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
@@ -79,6 +83,8 @@
   "lint-staged": {
     "*.{js,json,css,scss,less,md,ts,html,component.html}": [
       "prettier --write",
+      "eslint src/ --fix",
+      "tslint --fix --project .",
       "git add"
     ]
   },
