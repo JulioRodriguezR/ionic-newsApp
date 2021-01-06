@@ -5,7 +5,6 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -81,7 +80,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+    "src/**/*.{js,json,css,scss,less,md,ts,html,component.html}": [
       "prettier --write",
       "eslint src/ --fix",
       "tslint --fix --project .",
