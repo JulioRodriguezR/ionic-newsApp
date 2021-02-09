@@ -1,17 +1,19 @@
 # NewsApp
 
-* The [News API](https://newsapi.org/) is a simple searching live articles from the web using:
+## Table of contents
+* [General info](#general-info)
+* [Key Features](#key-features)
+* [Technologies](#technologies)
+* [Credits](#credits)
+
+## General info
+The [News API](https://newsapi.org/) is a simple searching live articles from the web using:
 
 1. Keyword or phrase
 2. Date published
 3. Source name
 4. Source domain name
 5. Language
-
-## Table of contents
-* [Key Features](#key-features)
-* [Technologies](#technologies)
-* [Credits](#credits)
 
 ## Key Features
 - Main view based on: _News_, _Billboard_ y _Popular_.
