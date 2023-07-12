@@ -75,7 +75,10 @@
   "description": "An Ionic project",
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-commit": "echo 'Post-commit hook'"
     }
   },
   "lint-staged": {
