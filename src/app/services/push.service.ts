@@ -14,12 +14,10 @@ export class PushService {
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert)
 
     this.oneSignal.handleNotificationReceived().subscribe(n => {
-      // do something when notification is received
       console.log('received', n)
     })
 
     this.oneSignal.handleNotificationOpened().subscribe(n => {
-      // do something when a notification is opened
       console.log('opened', n)
     })
 
