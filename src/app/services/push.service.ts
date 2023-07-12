@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-
 import { OneSignal } from '@ionic-native/onesignal/ngx'
 
 @Injectable({

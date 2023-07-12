@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-
-import { ResponseTopHeadlines } from '../models/models'
+import { Injectable } from '@angular/core'
 import { environment } from 'src/environments/environment'
+import { ResponseTopHeadlines } from '../models/models'
 
 const apiAkey = environment.apiKey
 const apiUrl = environment.apiUrl
@@ -30,7 +29,6 @@ export class NewsService {
 
   getTopHeadLines() {
     this.headLinesPage++
-    // ! Type the answer
     return this.startQuery<ResponseTopHeadlines>(`/top-headlines?country=us&page=${this.headLinesPage}`)
   }
 
