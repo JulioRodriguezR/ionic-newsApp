@@ -1,4 +1,4 @@
-# NewsApp
+# News App
 
 ## Table of contents
 * [General info](#general-info)

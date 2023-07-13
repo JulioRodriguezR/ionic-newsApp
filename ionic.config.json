@@ -1,5 +1,5 @@
 {
-  "name": "NewsApp",
+  "name": "news-app",
   "integrations": {
     "cordova": {},
     "capacitor": {}
