@@ -35,7 +35,8 @@ export class Tab2Page implements OnInit {
     })
   }
 
-  loadData(ev) {
-    this.loadNews(this.segment.value, ev)
+  loadData(ev: number) {
+    const segmentData: string = this.segment.value.toString();
+    this.loadNews(segmentData, ev)
   }
 }
