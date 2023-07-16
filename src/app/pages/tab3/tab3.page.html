@@ -6,11 +6,11 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-slides *ngIf="dataLocalSrv.news.length === 0" [options]="sliderOpts">
-        <ion-slide>
+    <swiper-container  *ngIf="dataLocalSrv.news.length === 0">
+        <swiper-slide>
             <ion-label>No Favorites</ion-label>
-        </ion-slide>
-    </ion-slides>
+        </swiper-slide>
+    </swiper-container>
     <app-news
         *ngIf="dataLocalSrv.news.length > 0"
         [news]="dataLocalSrv.news"
