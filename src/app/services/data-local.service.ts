@@ -42,7 +42,7 @@ export class DataLocalService {
 
     deleteNew(evNew: Article) {
         this.news = this.news.filter(i => i.title !== evNew.title);
-        this.storage.set('favorites', this.news); // lo que quede del []
+        this.storage.set('favorites', this.news); 
         this.presentToast('Delete favorite article');
     }
 }
