@@ -39,6 +39,7 @@
     "es6-promise-plugin": "^4.2.2",
     "onesignal-cordova-plugin": "^2.11.2",
     "rxjs": "^7.5.0",
+    "swiper": "^10.0.4",
     "tslib": "^1.9.0",
     "zone.js": "~0.13.1"
   },
