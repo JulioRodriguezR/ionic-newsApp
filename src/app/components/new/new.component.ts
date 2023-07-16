@@ -74,9 +74,9 @@ export class NewComponent implements OnInit {
     shareNew() {
         if (this.platform.is) {
             this.socialSharing.share(
-                this.new.title, // new
-                this.new.source.name, // author
-                '', // file
+                this.new.title, 
+                this.new.source.name, 
+                '', 
                 this.new.url,
             );
         } else {
