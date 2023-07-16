@@ -8,7 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx'
 import { StatusBar } from '@ionic-native/status-bar/ngx'
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
 import { SocialSharing } from '@ionic-native/social-sharing/ngx'
-import { IonicStorageModule } from '@ionic/storage'
+import { IonicStorageModule } from '@ionic/storage-angular'
 import { OneSignal } from '@ionic-native/onesignal/ngx'
 
 import { AppRoutingModule } from './app-routing.module'
