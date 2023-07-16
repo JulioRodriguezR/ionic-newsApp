@@ -38,7 +38,6 @@ export class NewComponent implements OnInit {
                 text: 'Delete Favorite',
                 icon: 'trash',
                 handler: () => {
-                    console.log('Delete favorite');
                     this.dataLocalSrv.deleteNew(this.new);
                 },
             };
@@ -47,7 +46,7 @@ export class NewComponent implements OnInit {
                 text: 'Favorite',
                 icon: 'heart',
                 handler: () => {
-                    console.log('Favorite');
+                    console.log(typeof this.dataLocalSrv)
                     this.dataLocalSrv.saveNew(this.new);
                 },
             };
