@@ -10,8 +10,10 @@ import { Article } from '../models/models';
 })
 export class DataLocalService {
     news: Article[] = [];
+    databaseCreated = false;
 
     constructor(private storage: Storage, public toastCtr: ToastController) {
+        this.createDatabase();
         this.loadFavorites();
     }
 
@@ -21,6 +23,11 @@ export class DataLocalService {
             duration: 1000,
         });
         toast.present();
+    }
+
+    async createDatabase() {
+        await this.storage.create(); 
+        this.databaseCreated = true; 
     }
 
     saveNew(evNew: Article) {
