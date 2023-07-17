@@ -46,7 +46,6 @@ export class NewComponent implements OnInit {
                 text: 'Favorite',
                 icon: 'heart',
                 handler: () => {
-                    console.log(typeof this.dataLocalSrv)
                     this.dataLocalSrv.saveNew(this.new);
                 },
             };
