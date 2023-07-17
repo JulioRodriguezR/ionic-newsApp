@@ -9,15 +9,25 @@ import { Article } from 'src/app/models/models'
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-  @ViewChild(IonSegment, { static: true }) segment: IonSegment
+  @ViewChild(IonSegment, { static: true }) segment: IonSegment;
 
-  categories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
+  categories = [
+    'business', 
+    'entertainment', 
+    'general', 
+    'health', 
+    'science', 
+    'sports', 
+    'technology'
+  ];
   news: Article[] = [];
+  selectedCategory: string;
 
   constructor(private newSrv: NewsService) {}
 
   ngOnInit() {
     this.loadNews(this.categories[0]);
+    this.selectedCategory = this.categories[0]; 
   }
 
   changeCategory(ev) {
