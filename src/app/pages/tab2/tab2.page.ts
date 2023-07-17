@@ -11,32 +11,32 @@ import { Article } from 'src/app/models/models'
 export class Tab2Page implements OnInit {
   @ViewChild(IonSegment, { static: true }) segment: IonSegment
 
-  categories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology']
-  news: Article[] = []
+  categories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
+  news: Article[] = [];
 
   constructor(private newSrv: NewsService) {}
 
   ngOnInit() {
-    this.loadNews(this.categories[0])
+    this.loadNews(this.categories[0]);
   }
 
   changeCategory(ev) {
-    this.news = []
-    this.loadNews(ev.detail.value)
+    this.news = [];
+    this.loadNews(ev.detail.value);
   }
 
   loadNews(category: string, ev?) {
     this.newSrv.getTopHeadLinesCategory(category).subscribe(resp => {
-      const respTopHead = JSON.parse(resp.contents)
-      this.news.push(...respTopHead.articles)
+      const respTopHead = JSON.parse(resp.contents);
+      this.news.push(...respTopHead.articles);
       if (ev) {
-        ev.target.complete()
+        ev.target.complete();
       }
     })
   }
 
   loadData(ev: number) {
     const segmentData: string = this.segment.value.toString();
-    this.loadNews(segmentData, ev)
+    this.loadNews(segmentData, ev);
   }
 }
