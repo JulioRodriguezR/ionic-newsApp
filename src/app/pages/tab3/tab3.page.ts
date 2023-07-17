@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { DataLocalService } from 'src/app/services/data-local.service';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
     selector: 'app-tab3',
@@ -8,10 +9,5 @@ import { DataLocalService } from 'src/app/services/data-local.service';
     styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page {
-    swiperOpts = {
-        allowSwiperPrev: false,
-        allowSwiperNext: false,
-    };
-
     constructor(public dataLocalSrv: DataLocalService) {}
 }
