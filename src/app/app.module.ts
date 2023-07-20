@@ -1,20 +1,21 @@
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouteReuseStrategy } from '@angular/router'
-import { HttpClientModule } from '@angular/common/http'
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular'
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
+import { OneSignal } from '@ionic-native/onesignal/ngx'
+import { SocialSharing } from '@ionic-native/social-sharing/ngx'
 import { SplashScreen } from '@ionic-native/splash-screen/ngx'
 import { StatusBar } from '@ionic-native/status-bar/ngx'
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
-import { SocialSharing } from '@ionic-native/social-sharing/ngx'
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular'
 import { IonicStorageModule } from '@ionic/storage-angular'
-import { OneSignal } from '@ionic-native/onesignal/ngx'
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
+import { AppRoutingModule } from './app-routing.module'
+import { AppComponent } from './app.component'
+
 
 @NgModule({
   declarations: [AppComponent],
