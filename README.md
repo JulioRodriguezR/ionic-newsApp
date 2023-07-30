@@ -23,9 +23,9 @@ The [News API](https://newsapi.org/) is a simple searching live articles from th
 
 ## Technologies
 Project is created with:
-* Sdk, Ionic version: 5.0.0
-* Framework, Angular version: 8.1.3
-* Runtime environment, Node version: 12.19.0
+* Sdk, Ionic version: 7.1.1 
+* Framework, Angular version: 16.1.4 
+* Runtime environment, Node version: 19.8.1 
 
 ## Credits
 This software uses the following open source packages:
